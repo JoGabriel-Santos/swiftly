@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@300;400;500;600;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+body {
+    color: #333333;
+    font-family: 'Dosis', sans-serif;
+    font-weight: 600;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+/* ----- Header ----- */
+
+header {
+    align-items: center;
+    border-bottom: #333333 2px solid;
+    display: flex;
+    justify-content: space-between;
+    margin: 5rem;
+    padding-bottom: 1rem;
+}
+
+h1 {
+    font-weight: 700;
+    font-size: 4rem;
+}
+
+h2 {
+    font-weight: 600;
+    font-size: 3.4rem;
+}
+
+h3 {
+    font-weight: 500;
+    font-size: 3rem;
+}
+
+h4 {
+    font-weight: 500;
+    font-size: 2.8rem;
+}
+
+.header-buttons {
+    display: flex;
+    gap: 12px;
+}
+
+.button {
+    background-color: #ffffff;
+    border-radius: 8px;
+    border: #333333 2px solid;
+    color: #333333;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 8px 12px;
+    transition: all .5s ease;
+}
+
+.button:hover {
+    background-color: #333333;
+    color: #ffffff;
+}
+
+.button.delete:hover {
+    background-color: #ff1b1b;
+    color: #ffffff;
+}
+
+/* ----- Products ----- */
+
+.section-products {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 5rem;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 8px;
+    border: #333333 2px solid;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.delete-checkbox {
+    background-color: #ffffff;
+    border-radius: 3px;
+    border: 1px solid #333333;
+    cursor: pointer;
+    display: inline-block;
+    height: 18px;
+    margin-right: 10px;
+    vertical-align: middle;
+    width: 18px;
+}
+
+.product-info {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+}
+
+.product-info h3 {
+    font-size: 1.5rem;
+}
+
+.product-info p {
+    font-size: 2rem;
+}
+
+.product-list-empty {
+    font-size: 2.5rem;
+}
+
+.description {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-top: 50px;
+}
+
+/* ----- Product add ----- */
+
+.section-product-add {
+    padding: 2rem 5rem;
+}
+
+.product-form {
+    display: flex;
+    gap: 35px;
+}
+
+.product-attributes--label, .product-attributes--input {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    width: 200px;
+}
+
+.product-attributes--label {
+    justify-content: space-around;
+}
+
+label {
+    font-weight: bold;
+    font-size: 2.2rem;
+}
+
+input, select {
+    border-radius: 5px;
+    border: #333333 1px solid;
+    color: #333333;
+    font-family: inherit;
+    font-size: 2rem;
+    font-weight: 600;
+    padding: 0.5rem;
+    width: 100%;
+}

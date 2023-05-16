@@ -1,0 +1,26 @@
+@media (max-width: 1300px) {
+
+    .section-products {
+        grid-template-columns: repeat(3, 1fr) !important;
+    }
+}
+
+@media (max-width: 1024px) {
+    html {
+        font-size: 50% !important;
+    }
+
+    .section-products {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+@media (max-width: 800px) {
+    html {
+        font-size: 40% !important;
+    }
+
+    .section-products {
+        grid-template-columns: repeat(1, 1fr) !important;
+    }
+}
