@@ -1,5 +1,9 @@
 <?php
 
+    require_once __DIR__ . '/../connection/config.php';
+
+    use sys4soft\Database;
+
     class Furniture extends Product
     {
         protected $dimensions;
@@ -10,13 +14,24 @@
             $this->dimensions = $dimensions;
         }
 
-        public static function addProduct($productInfo)
+        public static function addProduct($productInfo): stdClass
         {
-            // TODO: Implement addProduct() method.
+            $db = new Database(MYSQL_CONFIG);
+
+            $params = [
+                ':sku' => $productInfo->getSku(),
+                ':name' => $productInfo->getName(),
+                ':price' => $productInfo->getPrice(),
+                ':dimensions' => $productInfo->getDimensions()
+            ];
+
+            return $db->executeNonQuery(
+                "INSERT INTO product_form (sku, name, price, dimensions) VALUES (:sku, :name, :price, :dimensions)", $params
+            );
         }
 
-        public static function delProduct($productInfo)
+        public function getDimensions()
         {
-            // TODO: Implement delProduct() method.
+            return $this->dimensions;
         }
     }

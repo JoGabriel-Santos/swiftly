@@ -1,5 +1,9 @@
 <?php
 
+    require_once __DIR__ . '/../connection/config.php';
+
+    use sys4soft\Database;
+
     class DVD extends Product
     {
         protected $size;
@@ -10,13 +14,24 @@
             $this->size = $size;
         }
 
-        public static function addProduct($productInfo)
+        public static function addProduct($productInfo): stdClass
         {
-            // TODO: Implement addProduct() method.
+            $db = new Database(MYSQL_CONFIG);
+
+            $params = [
+                ':sku' => $productInfo->getSku(),
+                ':name' => $productInfo->getName(),
+                ':price' => $productInfo->getPrice(),
+                ':size' => $productInfo->getSize()
+            ];
+
+            return $db->executeNonQuery(
+                "INSERT INTO product_form (sku, name, price, size) VALUES (:sku, :name, :price, :size)", $params
+            );
         }
 
-        public static function delProduct($productInfo)
+        public function getSize()
         {
-            // TODO: Implement delProduct() method.
+            return $this->size;
         }
     }

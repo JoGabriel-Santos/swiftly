@@ -1,5 +1,9 @@
 <?php
 
+    require_once __DIR__ . '/../connection/config.php';
+
+    use sys4soft\Database;
+
     class Book extends Product
     {
         protected $weight;
@@ -10,13 +14,24 @@
             $this->weight = $weight;
         }
 
-        public static function addProduct($productInfo)
+        public static function addProduct($productInfo): stdClass
         {
-            // TODO: Implement addProduct() method.
+            $db = new Database(MYSQL_CONFIG);
+
+            $params = [
+                ':sku' => $productInfo->getSku(),
+                ':name' => $productInfo->getName(),
+                ':price' => $productInfo->getPrice(),
+                ':weight' => $productInfo->getWeight()
+            ];
+
+            return $db->executeNonQuery(
+                "INSERT INTO product_form (sku, name, price, weight) VALUES (:sku, :name, :price, :weight)", $params
+            );
         }
 
-        public static function delProduct($productInfo)
+        public function getWeight()
         {
-            // TODO: Implement delProduct() method.
+            return $this->weight;
         }
     }

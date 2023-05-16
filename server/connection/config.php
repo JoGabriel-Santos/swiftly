@@ -3,7 +3,7 @@
     const MYSQL_CONFIG = [
 
         "host" => "localhost",
-        "database" => "products",
+        "database" => "Products",
         "username" => "root",
         "password" => "",
     ];

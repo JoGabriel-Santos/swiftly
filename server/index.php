@@ -38,10 +38,10 @@
 // Determine request method
     $method = $_SERVER['REQUEST_METHOD'];
 
+    require "models/Product.php";
     require "models/Book.php";
     require "models/DVD.php";
     require "models/Furniture.php";
-    require "models/Product.php";
 
     require_once "connection/Database.php";
     require_once "api/products_api.php";
